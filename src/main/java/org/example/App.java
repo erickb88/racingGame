@@ -34,6 +34,15 @@ public class App {
         race.insertCompetitor(0, dacia);
         race.insertCompetitor(1,lada);
 
+        for(int i = 0; i<race.getCompetitors().length; i++){
+            if(race.getCompetitors()[i]!=null) {
+                System.out.println("Vehicle "+i+": "+race.getCompetitors()[i].getName());
+            }
+        }
+        for (Vehicle vehicle : race.getCompetitors()) {
+            if(vehicle != null) System.out.println(vehicle.getName());
+        }
+
 
 
     }

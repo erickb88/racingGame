@@ -7,6 +7,8 @@ public class Vehicle {
     private String color;
     private int wheelCount;
     private double currentSpeed;
+    private double mileage;
+    private double fuelLevel;
 
     public double accelerate(double speed){
         currentSpeed += speed;
@@ -45,6 +47,32 @@ public class Vehicle {
 
     public void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
+    }
+    public double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
+    }
+
+    public double getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public void setFuelLevel(double fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
+
+    public double accelerate(double speed) {
+
+        setCurrentSpeed(getCurrentSpeed()+speed);
+
+        double travelDistance = getCurrentSpeed()/60;
+        double spentFuel = travelDistance * mileage/100;
+        fuelLevel -= spentFuel;
+
+        return super.accelerate(speed);
     }
 
     @Override
